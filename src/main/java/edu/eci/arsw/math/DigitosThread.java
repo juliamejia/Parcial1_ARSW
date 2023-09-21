@@ -34,9 +34,8 @@ public class DigitosThread extends Thread {
             }
             sum = 16 * (sum - Math.floor(sum));
             digitos[i] = (byte) sum;
+            enSuspencion();
         }
-
-
     }
     /// <summary>
     /// Returns the sum of 16^(n - k)/(8 * k + m) from 0 to k.
@@ -104,7 +103,7 @@ public class DigitosThread extends Thread {
         return digitos;
     }
 
-    //PARA EL PUNTO 3------------------------------
+    //PARA EL PUNTO 3------------------------------------------------
 
     boolean isPrime(int n){
         if(n%2 == 0) {

@@ -15,16 +15,7 @@ import java.util.concurrent.TimeUnit;
  * @author hcadavid
  */
 public class Main {
-
-
-    public static void main(String a[]) {
-        LinkedList<String> variables = new LinkedList<>();
-        String var1 = (bytesToHex(PiDigits.getDigits(0, 10, 8)));
-        String var2 = (bytesToHex(PiDigits.getDigits(0, 10, 8)));
-        String var3 = (bytesToHex(PiDigits.getDigits(0, 10, 8)));
-        variables.add(var1);
-        variables.add(var2);
-        variables.add(var3);
+    public static void main(String a[]) throws InterruptedException {
         System.out.println(bytesToHex(PiDigits.getDigits(0, 10, 8)));
         System.out.println(bytesToHex(PiDigits.getDigits(0, 10, 8)));
         System.out.println(bytesToHex(PiDigits.getDigits(1, 100, 8)));
@@ -47,15 +38,5 @@ public class Main {
         }
         return sb.toString();
     }
-
-    //intento del punto 3
-    Long startTime = System.nanoTime();
-
-    Long endTime = System.nanoTime();
-    //TimeUnit.SECONDS.sleep(5);
-    Long timeLapso = endTime-startTime;
-    
-
-
 
 }
