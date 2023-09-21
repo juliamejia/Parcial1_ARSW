@@ -6,6 +6,9 @@
 package edu.eci.arsw.math;
 
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Timer;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -13,10 +16,19 @@ import java.util.Arrays;
  */
 public class Main {
 
+
     public static void main(String a[]) {
-        System.out.println(bytesToHex(PiDigits.getDigits(0, 10)));
-        System.out.println(bytesToHex(PiDigits.getDigits(1, 100)));
-        System.out.println(bytesToHex(PiDigits.getDigits(1, 1000000)));
+        LinkedList<String> variables = new LinkedList<>();
+        String var1 = (bytesToHex(PiDigits.getDigits(0, 10, 8)));
+        String var2 = (bytesToHex(PiDigits.getDigits(0, 10, 8)));
+        String var3 = (bytesToHex(PiDigits.getDigits(0, 10, 8)));
+        variables.add(var1);
+        variables.add(var2);
+        variables.add(var3);
+        System.out.println(bytesToHex(PiDigits.getDigits(0, 10, 8)));
+        System.out.println(bytesToHex(PiDigits.getDigits(0, 10, 8)));
+        System.out.println(bytesToHex(PiDigits.getDigits(1, 100, 8)));
+        System.out.println(bytesToHex(PiDigits.getDigits(1, 1000000, 8)));
     }
 
     private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
@@ -31,9 +43,19 @@ public class Main {
         StringBuilder sb=new StringBuilder();
         for (int i=0;i<hexChars.length;i=i+2){
             //sb.append(hexChars[i]);
-            sb.append(hexChars[i+1]);            
+            sb.append(hexChars[i+1]);
         }
         return sb.toString();
     }
+
+    //intento del punto 3
+    Long startTime = System.nanoTime();
+
+    Long endTime = System.nanoTime();
+    //TimeUnit.SECONDS.sleep(5);
+    Long timeLapso = endTime-startTime;
+    
+
+
 
 }
