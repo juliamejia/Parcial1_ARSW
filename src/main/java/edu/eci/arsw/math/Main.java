@@ -5,16 +5,19 @@
  */
 package edu.eci.arsw.math;
 
+import java.util.Scanner;
+
 /**
  *
  * @author hcadavid
  */
 public class Main {
+    Boolean lock = true;
 
     public static void main(String a[]) throws InterruptedException {
         System.out.println(bytesToHex(new PiDigits().getDigits(0, 10, 8)));
         System.out.println(bytesToHex(new PiDigits().getDigits(0, 100, 8)));
-        System.out.println(bytesToHex(new PiDigits().getDigits(1, 1000000, 8)));
+        System.out.println(bytesToHex(new PiDigits().getDigits(1, 1000, 8)));
     }
 
     private final static char[] hexArray = "0123456789ABCDEF".toCharArray();

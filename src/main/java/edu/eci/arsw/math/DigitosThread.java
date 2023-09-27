@@ -5,6 +5,7 @@ public class DigitosThread extends Thread {
     private int ini;
     private int contador;
     private byte[] digitos;
+    boolean suspend = false;
     public DigitosThread() {
     }
     public DigitosThread(int a, int b) {
@@ -91,6 +92,24 @@ public class DigitosThread extends Thread {
     }
     public void run() {
         getDigits(this.ini,this.contador);
+        enSuspencion();
     }
 
+    public synchronized void suspender() {
+        suspend = true;
+    }
+
+    public synchronized void renaudar() {
+        suspend = false;
+        notifyAll();
+    }
+    public synchronized void enSuspencion(){
+        while (suspend){
+            try {
+                wait();
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        }
+    }
 }

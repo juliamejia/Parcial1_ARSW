@@ -21,7 +21,7 @@ public class PiDigits {
          * @param count The number of digits to return
          * @return An array containing the hexadecimal digits.
          */
-        public byte[] getDigits(int start, int count, int N) {
+        public byte[] getDigits(int start, int count, int N) throws InterruptedException {
                 int numberPerThread = count / N;
                 digits = new byte[count];
                 int aux = 0;
@@ -49,6 +49,22 @@ public class PiDigits {
                         }
                 } catch (Exception e) {
                         System.out.println("Error in thread");
+                }
+                Long starTime = System.nanoTime();
+                TimeUnit.SECONDS.sleep(5);
+                Long endTime = System.nanoTime();
+                Long timeLapso = endTime -starTime;
+                for(DigitosThread thread: threads){
+                        thread.suspender();
+                }
+                Scanner scanner = new Scanner(System.in);
+                System.out.println("presione enter para continuar");
+                String input = scanner.nextLine();
+
+                if (input == ""){
+                        for (DigitosThread thread: threads){
+                                thread.renaudar();
+                        }
                 }
                 byte[] digits = this.digits;
                 return digits;
