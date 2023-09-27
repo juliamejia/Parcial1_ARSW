@@ -5,21 +5,16 @@
  */
 package edu.eci.arsw.math;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Timer;
-import java.util.concurrent.TimeUnit;
-
 /**
  *
  * @author hcadavid
  */
 public class Main {
+
     public static void main(String a[]) throws InterruptedException {
-        System.out.println(bytesToHex(PiDigits.getDigits(0, 10, 8)));
-        System.out.println(bytesToHex(PiDigits.getDigits(0, 10, 8)));
-        System.out.println(bytesToHex(PiDigits.getDigits(1, 100, 8)));
-        System.out.println(bytesToHex(PiDigits.getDigits(1, 1000000, 8)));
+        System.out.println(bytesToHex(new PiDigits().getDigits(0, 10, 8)));
+        System.out.println(bytesToHex(new PiDigits().getDigits(0, 100, 8)));
+        System.out.println(bytesToHex(new PiDigits().getDigits(1, 1000000, 8)));
     }
 
     private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
@@ -33,7 +28,6 @@ public class Main {
         }
         StringBuilder sb=new StringBuilder();
         for (int i=0;i<hexChars.length;i=i+2){
-            //sb.append(hexChars[i]);
             sb.append(hexChars[i+1]);
         }
         return sb.toString();
